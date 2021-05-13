@@ -21,17 +21,29 @@
             
         </div>
 
-        <ul>
-            <li>titolo</li>
-            <li>titolo originale</li>
-            <li>lingua</li>
-            <li>voto</li>
+        <ul>FILM
+            <li v-for="movies in moviesList">
+                <p>TITOLO IN ITALIANO : {{movies.title}}</p>
+                <p>TITOLO ORIGINALE : {{movies.original_title}}</p>
+                <p>LINGUA ORIGINALE : {{movies.original_language}}</p>
+                <p>VOTO : {{movies.vote_average}}</p>
+
+            </li>
         </ul>
 
+        <ul>SERIE TV--------------------------------------------------------------
+            <li v-for="tvSeries in tvSeriesList">
+                <p>TITOLO IN ITALIANO : {{tvSeries.name}}</p>
+                <p>TITOLO ORIGINALE : {{tvSeries.original_title}}</p>
+                <p>LINGUA ORIGINALE : {{tvSeries.original_language}}</p>
+                <p>VOTO : {{tvSeries.popularity}}</p>
+
+            </li>
+        </ul>
 
     </div>
 
 
-    <script src="script.js.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

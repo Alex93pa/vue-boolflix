@@ -16,7 +16,7 @@ new Vue({
                 }
             }
 
-            axios.get("https://api.themoviedb.org/3/search/movie", axiosOptions )
+            axios.get("https://api.themoviedb.org/3/search/" + searchType, axiosOptions )
             .then((resp) => {
                 if(searchType === "movie" ){
                     this.moviesList =  resp.data.results;
