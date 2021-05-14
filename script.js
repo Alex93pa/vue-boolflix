@@ -11,9 +11,13 @@ new Vue({
         getFlag(takeFlag) {
             if (flagMap.hasOwnProperty(takeFlag)) {
                 return flagMap[takeFlag]
-            } else{
-                return false
+            }else{
+                return flagMap["generic"]
             }
+        },
+        newVote(vote) {
+            vote = vote / 2;
+                return Math.round(vote)
         },
         makeAxiosSearch(searchType) {
             const axiosOptions = {
@@ -61,6 +65,5 @@ const flagMap ={
     es : 'es.svg',
     fr : 'fr.svg',
     us : 'us.svg',
-    original_language : 'original_language' + '.svg',
-    notFound: 'not-found.svg',
+    generic: 'not-found.svg',
 }
