@@ -37,9 +37,8 @@
                 </div> 
                 <div v-for="movies in moviesList" class="film-card">
                     <div class="poster-container">
-                        <img
-                        :src="'https://image.tmdb.org/t/p/' + 'w342' + movies.poster_path " alt="">
-                        <!-- <div v-else>Copertina non disponibile</div> -->
+                        <img 
+                        :src="getMoviePoster(movies)" alt="">
                         
                         <div class="hover-info">
                             <div class="info">
@@ -67,9 +66,8 @@
             
             <div v-for="tvSeries in tvSeriesList" class="film-card">
                 <div class="poster-container">
-                    <img
-                    :src="'https://image.tmdb.org/t/p/' + 'w342' + tvSeries.poster_path " alt="">
-                    <!-- <div v-else>Copertina non disponibile</div> -->
+                    <img 
+                    :src="getTvSeriesPoster(tvSeries)" alt="">
                     
                     <div class="hover-info">
                         <div class="info">

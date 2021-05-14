@@ -6,8 +6,23 @@ new Vue({
         moviesList: [],
         tvSeriesList: [],
     },
-    
+
     methods: {
+
+        getMoviePoster(movies){
+            if (!movies.poster_path) {
+                return "no-cop.jpg"
+            } else{
+                return 'https://image.tmdb.org/t/p/' + 'w342' + movies.poster_path 
+            }
+        },
+        getTvSeriesPoster(tvSeries){
+            if (!tvSeries.poster_path) {
+                return "no-cop.jpg"
+            } else{
+                return 'https://image.tmdb.org/t/p/' + 'w342' + tvSeries.poster_path 
+            }
+        },
         getFlag(takeFlag) {
             if (flagMap.hasOwnProperty(takeFlag)) {
                 return flagMap[takeFlag]
@@ -65,5 +80,7 @@ const flagMap ={
     es : 'es.svg',
     fr : 'fr.svg',
     us : 'us.svg',
+    jp : 'jp.svg',
+    ko : 'kr.svg',
     generic: 'not-found.svg',
 }
