@@ -15,23 +15,32 @@
     
     <div id="app">
 
-        <div>
+        <header>
+            <span class="logo-img">
+                <img src="bf.jpg" alt="">
+            </span>
+            <span class="grow"></span>
+            <span class="search-film">
+                
+                <input type="text" v-model="textToSearch">
+                <button @click="doSeach">Cerca</button>
+                
+            </span>
+        </header>
 
-            <input type="text" v-model="textToSearch">
-            <button @click="doSeach">Cerca</button>
-            
-        </div>
+        <main>
 
-        <ol>FILM
-            <li v-for="movies in moviesList">
-                <div class="poster-container">
-                    <img
-                     :src="'https://image.tmdb.org/t/p/' + 'w342' + movies.poster_path " alt="">
-                    <!-- <div v-else>Copertina non disponibile</div> -->
-                </div>
+
+            <ol>FILM
+                <li v-for="movies in moviesList">
+                    <div class="poster-container">
+                        <img
+                        :src="'https://image.tmdb.org/t/p/' + 'w342' + movies.poster_path " alt="">
+                        <!-- <div v-else>Copertina non disponibile</div> -->
+                    </div>
 
                 <div class="info">
-
+                    
                     <p>TITOLO IN ITALIANO : {{movies.title}}</p>
                     <p>TITOLO ORIGINALE : {{movies.original_title}}</p>
                     <p>LINGUA ORIGINALE : 
@@ -42,10 +51,10 @@
                         <i class="fa fa-star"></i>
                     </span>
                 </div>
-
+                
             </li>
         </ol>
-
+        
         <ol>SERIE TV--------------------------------------------------------------
             <li v-for="tvSeries in tvSeriesList">
                 <p>TITOLO IN ITALIANO : {{tvSeries.name}}</p>
@@ -55,10 +64,12 @@
                     :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
                 </p>
                 <p>VOTO : {{tvSeries.popularity}}</p>
-
+                
             </li>
         </ol>
-
+        
+    </main>
+        
     </div>
 
 

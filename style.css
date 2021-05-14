@@ -2,6 +2,35 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    color: white;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    padding: 15px;
+}
+
+main{
+    height: calc(100vh - 100px);
+    background-color: rgb(65, 65, 65);
+}
+.logo-img img{
+    height: 70px;
+    display: inline;
+}
+
+.grow{
+    flex-grow: 1
+    ;
+}
+
+.search-film{
+    margin-right: 50px;
+    align-items: center;
+    display: flex;
 }
 
 .flag{
