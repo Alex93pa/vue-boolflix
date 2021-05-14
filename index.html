@@ -22,7 +22,7 @@
             
         </div>
 
-        <ul>FILM
+        <ol>FILM
             <li v-for="movies in moviesList">
                 <p>TITOLO IN ITALIANO : {{movies.title}}</p>
                 <p>TITOLO ORIGINALE : {{movies.original_title}}</p>
@@ -33,17 +33,20 @@
                 <p>VOTO : {{movies.vote_average}}</p>
 
             </li>
-        </ul>
+        </ol>
 
-        <ul>SERIE TV--------------------------------------------------------------
+        <ol>SERIE TV--------------------------------------------------------------
             <li v-for="tvSeries in tvSeriesList">
                 <p>TITOLO IN ITALIANO : {{tvSeries.name}}</p>
                 <p>TITOLO ORIGINALE : {{tvSeries.original_title}}</p>
-                <p>LINGUA ORIGINALE : {{tvSeries.original_language}}</p>
+                <p>LINGUA ORIGINALE : 
+                    <img v-if="getFlag(tvSeries.original_language)" 
+                    :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
+                </p>
                 <p>VOTO : {{tvSeries.popularity}}</p>
 
             </li>
-        </ul>
+        </ol>
 
     </div>
 

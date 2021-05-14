@@ -56,10 +56,11 @@ new Vue({
 })
 
 const flagMap ={
-    en : 'en.svg', 
+    en : 'gb.svg', 
     it : 'it.svg',
     es : 'es.svg',
     fr : 'fr.svg',
     us : 'us.svg',
-    notFound: '',
+    original_language : 'original_language' + '.svg',
+    notFound: 'not-found.svg',
 }
