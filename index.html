@@ -27,7 +27,8 @@
                 <p>TITOLO IN ITALIANO : {{movies.title}}</p>
                 <p>TITOLO ORIGINALE : {{movies.original_title}}</p>
                 <p>LINGUA ORIGINALE : 
-
+                    <img v-if="getFlag(movies.original_language)" 
+                    :src="'flags/'+getFlag(movies.original_language)" class="flag" alt="lang" >
                 </p>
                 <p>VOTO : {{movies.vote_average}}</p>
 

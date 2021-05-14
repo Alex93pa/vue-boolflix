@@ -6,7 +6,15 @@ new Vue({
         moviesList: [],
         tvSeriesList: [],
     },
+    
     methods: {
+        getFlag(takeFlag) {
+            if (flagMap.hasOwnProperty(takeFlag)) {
+                return flagMap[takeFlag]
+            } else{
+                return false
+            }
+        },
         makeAxiosSearch(searchType) {
             const axiosOptions = {
                 params: {
@@ -46,3 +54,12 @@ new Vue({
         }
     },
 })
+
+const flagMap ={
+    en : 'en.svg', 
+    it : 'it.svg',
+    es : 'es.svg',
+    fr : 'fr.svg',
+    us : 'us.svg',
+    notFound: '',
+}
