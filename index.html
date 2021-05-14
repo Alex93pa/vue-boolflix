@@ -23,7 +23,7 @@
             <span class="search-film">
                 
                 <input type="text" v-model="textToSearch">
-                <button @click="doSeach">Cerca</button>
+                <button @click="doSeach" @keyup.enter="doSeach">Cerca</button>
                 
             </span>
         </header>

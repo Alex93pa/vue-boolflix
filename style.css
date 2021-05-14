@@ -33,6 +33,21 @@ main{
     display: flex;
 }
 
+.search-film button{
+    color: black;
+    padding: 0 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.search-film button:hover{
+    transform: scale(1.3);
+}
+
+input{
+    color: black;
+}
+
 .flag{
     height: 20px;
     width: 100%;
