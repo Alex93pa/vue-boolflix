@@ -22,8 +22,8 @@
             <span class="grow"></span>
             <span class="search-film">
                 
-                <input type="text" v-model="textToSearch">
-                <button @click="doSeach" @keyup.enter="doSeach">Cerca</button>
+                <input type="text" @keyup.enter="doSeach" v-model="textToSearch">
+                <button @click="doSeach" >Cerca</button>
                 
             </span>
         </header>
@@ -31,42 +31,65 @@
         <main>
 
 
-            <ol>FILM
-                <li v-for="movies in moviesList">
+            <section>
+                <div class="category">
+                    FILM
+                </div> 
+                <div v-for="movies in moviesList" class="film-card">
                     <div class="poster-container">
                         <img
                         :src="'https://image.tmdb.org/t/p/' + 'w342' + movies.poster_path " alt="">
                         <!-- <div v-else>Copertina non disponibile</div> -->
-                    </div>
+                        
+                        <div class="hover-info">
+                            <div class="info">
 
-                <div class="info">
+                                <p>TITOLO IN ITALIANO : {{movies.title}}</p>
+                                <p>TITOLO ORIGINALE : {{movies.original_title}}</p>
+                                <p>LINGUA ORIGINALE : 
+                                    <img v-if="getFlag(movies.original_language)" 
+                                    :src="'flags/'+getFlag(movies.original_language)" class="flag" alt="lang" >
+                                </p>
+                                <span class="star-vote" v-for="index in newVote(movies.vote_average)">
+                                    <i class="fa fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <p>TITOLO IN ITALIANO : {{movies.title}}</p>
-                    <p>TITOLO ORIGINALE : {{movies.original_title}}</p>
-                    <p>LINGUA ORIGINALE : 
-                        <img v-if="getFlag(movies.original_language)" 
-                        :src="'flags/'+getFlag(movies.original_language)" class="flag" alt="lang" >
-                    </p>
-                    <span class="star-vote" v-for="index in newVote(movies.vote_average)">
-                        <i class="fa fa-star"></i>
-                    </span>
+                </div>
+            </section>
+        
+        <section>
+            <div class="category">
+               SERIE TV
+            </div> 
+            
+            <div v-for="tvSeries in tvSeriesList" class="film-card">
+                <div class="poster-container">
+                    <img
+                    :src="'https://image.tmdb.org/t/p/' + 'w342' + tvSeries.poster_path " alt="">
+                    <!-- <div v-else>Copertina non disponibile</div> -->
+                    
+                    <div class="hover-info">
+                        <div class="info">
+
+                            <p>TITOLO IN ITALIANO : {{tvSeries.name}}</p>
+                            <p>TITOLO ORIGINALE : {{tvSeries.original_title}}</p>
+                            <p>LINGUA ORIGINALE : 
+                                <img v-if="getFlag(tvSeries.original_language)" 
+                                :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
+                            </p>
+                            <span class="star-vote" v-for="index in newVote(tvSeries.popularity)">
+                                <i class="fa fa-star"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
                 
-            </li>
-        </ol>
-        
-        <ol>SERIE TV--------------------------------------------------------------
-            <li v-for="tvSeries in tvSeriesList">
-                <p>TITOLO IN ITALIANO : {{tvSeries.name}}</p>
-                <p>TITOLO ORIGINALE : {{tvSeries.original_title}}</p>
-                <p>LINGUA ORIGINALE : 
-                    <img v-if="getFlag(tvSeries.original_language)" 
-                    :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
-                </p>
-                <p>VOTO : {{tvSeries.popularity}}</p>
-                
-            </li>
-        </ol>
+            </div>
+
+        </section>
         
     </main>
         
