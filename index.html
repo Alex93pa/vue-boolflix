@@ -49,8 +49,9 @@
                                     <img v-if="getFlag(movies.original_language)" 
                                     :src="'flags/'+getFlag(movies.original_language)" class="flag" alt="lang" >
                                 </p>
-                                <span class="star-vote" v-for="index in newVote(movies.vote_average)">
-                                    <i class="fa fa-star"></i>
+                                <!-- <p class="cast" v-if="movie.actors">{{ actor.original_name }}</p> -->
+                                <span class="star-vote" v-for="star in movieStar(movies)">
+                                    <i v-for="star in movieStar(movies)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
                                 </span>
                             </div>
                         </div>
@@ -78,9 +79,8 @@
                                 <img v-if="getFlag(tvSeries.original_language)" 
                                 :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
                             </p>
-                            <span class="star-vote" v-for="index in newVote(tvSeries.popularity)">
-                                <i class="fa fa-star"></i>
-                            </span>
+                            <span class="star-vote" v-for="star in tvSerieStar(tvSeries)">
+                                <i v-for="star in tvSerieStar(tvSeries)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
                         </div>
                     </div>
                 </div>

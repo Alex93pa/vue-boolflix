@@ -30,9 +30,32 @@ new Vue({
                 return flagMap["generic"]
             }
         },
-        newVote(vote) {
-            vote = vote / 2;
-                return Math.round(vote)
+        // newVote(vote) {
+        //     vote = vote / 2;
+        //         return Math.round(vote)
+        // },
+        movieStar(movies) {
+            const movieVote =  Math.round(movies.vote_average / 2 )
+            const toReturnMovie = []  
+            for (let i = 1; i <= 5; i++) {
+                toReturnMovie.push(i <= movieVote);                        
+            }
+        
+            return toReturnMovie
+        },
+        tvSerieStar(tvSeries) {
+            const tvSerieVote =  Math.round(tvSeries.popularity / 2 )
+            const toReturnTvSeries = []  
+            for (let i = 1; i <= 5; i++) {
+                toReturnTvSeries.push(i <= tvSerieVote);                        
+            }
+        
+            return toReturnTvSeries
+        },
+        getCast(movie) {
+            if (movie.actors) {
+                return;
+            }
         },
         makeAxiosSearch(searchType) {
             const axiosOptions = {
