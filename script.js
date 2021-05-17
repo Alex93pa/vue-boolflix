@@ -48,10 +48,24 @@ new Vue({
         
             return toReturnTvSeries
         },
-        getCast(movie) {
-            if (movie.actors) {
+        getCast(movies) {
+            if (movies.actors) {
                 return;
             }
+
+            const axiosOptions = {
+                params: {
+                    api_key: this.tmdbApiKey,
+                    language: "it-IT"
+                }
+            };
+
+            const movieType = movies.tvSeries ? "tv" : "movie";
+
+            axios.get(`https://api.themoviedb.org/3/${movieType}/${movies.id}/credits`, axiosOptions)
+            .then(resp => {
+                this.$set(movies, "actors", resp.data.cast.slice(0,5));
+            });
         },
         makeAxiosSearch(searchType) {
             const axiosOptions = {

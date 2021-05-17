@@ -35,7 +35,7 @@
                 <div class="category">
                     FILM
                 </div> 
-                <div v-for="movies in moviesList" class="film-card">
+                <div v-for="movies in moviesList" class="film-card" @click="getCast(movies)">
                     <div class="poster-container">
                         <img 
                         :src="getMoviePoster(movies)" alt="">
@@ -49,7 +49,9 @@
                                     <img v-if="getFlag(movies.original_language)" 
                                     :src="'flags/'+getFlag(movies.original_language)" class="flag" alt="lang" >
                                 </p>
-                                <!-- <p class="cast" v-if="movie.actors">{{ actor.original_name }}</p> -->
+                                <p class="cast" v-if="movies.actors">
+                                    <span v-for="actor in movies.actors">{{ actor.original_name }}</span>
+                                </p>
                                 <span class="star-vote" >
                                     <i v-for="star in movieStar(movies)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
                                 </span>
