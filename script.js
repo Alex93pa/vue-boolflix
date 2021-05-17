@@ -30,10 +30,6 @@ new Vue({
                 return flagMap["generic"]
             }
         },
-        // newVote(vote) {
-        //     vote = vote / 2;
-        //         return Math.round(vote)
-        // },
         movieStar(movies) {
             const movieVote =  Math.round(movies.vote_average / 2 )
             const toReturnMovie = []  

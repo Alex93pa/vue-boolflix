@@ -14,7 +14,7 @@
 <body>
     
     <div id="app">
-
+<!-- HEADER -->
         <header>
             <span class="logo-img">
                 <img src="bf.jpg" alt="">
@@ -30,7 +30,7 @@
 
         <main>
 
-
+<!-- LISTA FILM -->
             <section>
                 <div class="category">
                     FILM
@@ -50,7 +50,7 @@
                                     :src="'flags/'+getFlag(movies.original_language)" class="flag" alt="lang" >
                                 </p>
                                 <!-- <p class="cast" v-if="movie.actors">{{ actor.original_name }}</p> -->
-                                <span class="star-vote" v-for="star in movieStar(movies)">
+                                <span class="star-vote" >
                                     <i v-for="star in movieStar(movies)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
                                 </span>
                             </div>
@@ -59,7 +59,8 @@
                     
                 </div>
             </section>
-        
+
+<!-- LISTA SERIE TV        -->
         <section>
             <div class="category">
                SERIE TV
@@ -79,7 +80,7 @@
                                 <img v-if="getFlag(tvSeries.original_language)" 
                                 :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
                             </p>
-                            <span class="star-vote" v-for="star in tvSerieStar(tvSeries)">
+                            <span class="star-vote">
                                 <i v-for="star in tvSerieStar(tvSeries)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
                         </div>
                     </div>
