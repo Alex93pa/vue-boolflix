@@ -5,6 +5,8 @@ new Vue({
         tmdbApiKey : '0924d7517f6c9a9c52bdbc940d50377f',
         moviesList: [],
         tvSeriesList: [],
+        movieGenres : [],
+        tvGenres: [],
     },
 
     methods: {
@@ -66,6 +68,27 @@ new Vue({
             .then(resp => {
                 this.$set(movies, "actors", resp.data.cast.slice(0,5));
             });
+        },
+        getGenres(type) {
+            const axiosOptions = {
+                params: {
+                    api_key: this.tmdbApiKey,
+                    language: "it-IT"
+                }
+            };
+
+            const movieType = movies.tvSeries ? "tv" : "movie";
+           
+            axios.get(`https://api.themoviedb.org/3/genre/${movieType}/list`, axiosOptions)
+                .then((resp) => {
+                    
+                    if (type === "movie") {
+                        this.movieGenres = resp.data.genres
+                    } else {
+                        this.tvGenres = resp.data.genres
+                    }
+                }
+            )
         },
         makeAxiosSearch(searchType) {
             const axiosOptions = {

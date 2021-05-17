@@ -68,7 +68,7 @@
                SERIE TV
             </div> 
             
-            <div v-for="tvSeries in tvSeriesList" class="film-card">
+            <div v-for="tvSeries in tvSeriesList" class="film-card" @click="getCast(tvSeries)">
                 <div class="poster-container">
                     <img 
                     :src="getTvSeriesPoster(tvSeries)" alt="">
@@ -81,6 +81,9 @@
                             <p>LINGUA ORIGINALE : 
                                 <img v-if="getFlag(tvSeries.original_language)" 
                                 :src="'flags/'+getFlag(tvSeries.original_language)" class="flag" alt="lang" >
+                            </p>
+                            <p class="cast" v-if="tvSeries.actors">
+                                <span v-for="actor in tvSeries.actors">{{ actor.original_name }}</span>
                             </p>
                             <span class="star-vote">
                                 <i v-for="star in tvSerieStar(tvSeries)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
