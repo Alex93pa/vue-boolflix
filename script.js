@@ -11,18 +11,12 @@ new Vue({
 
     methods: {
 
+
         getMoviePoster(movies){
             if (!movies.poster_path) {
                 return "no-cop.jpg"
             } else{
                 return 'https://image.tmdb.org/t/p/' + 'w342' + movies.poster_path 
-            }
-        },
-        getTvSeriesPoster(tvSeries){
-            if (!tvSeries.poster_path) {
-                return "no-cop.jpg"
-            } else{
-                return 'https://image.tmdb.org/t/p/' + 'w342' + tvSeries.poster_path 
             }
         },
         getFlag(takeFlag) {
@@ -34,21 +28,12 @@ new Vue({
         },
         movieStar(movies) {
             const movieVote =  Math.round(movies.vote_average / 2 )
-            const toReturnMovie = []  
+            const toReturn = []  
             for (let i = 1; i <= 5; i++) {
-                toReturnMovie.push(i <= movieVote);                        
+                toReturn.push(i <= movieVote);                        
             }
         
-            return toReturnMovie
-        },
-        tvSerieStar(tvSeries) {
-            const tvSerieVote =  Math.round(tvSeries.popularity / 2 )
-            const toReturnTvSeries = []  
-            for (let i = 1; i <= 5; i++) {
-                toReturnTvSeries.push(i <= tvSerieVote);                        
-            }
-        
-            return toReturnTvSeries
+            return toReturn
         },
         getCast(movies) {
             if (movies.actors) {
@@ -107,7 +92,7 @@ new Vue({
                     this.tvSeriesList = resp.data.results.map((tvShow) => {
                         tvShow.original_title = tvShow.original_name;
                         tvShow.title = tvShow.original_name;
-
+                        tvShow.tvSeries = true
                         return tvShow
                     });
                 }               

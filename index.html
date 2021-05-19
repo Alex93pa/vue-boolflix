@@ -71,7 +71,7 @@
             <div v-for="tvSeries in tvSeriesList" class="film-card" @click="getCast(tvSeries)">
                 <div class="poster-container">
                     <img 
-                    :src="getTvSeriesPoster(tvSeries)" alt="">
+                    :src="getMoviePoster(tvSeries)" alt="">
                     
                     <div class="hover-info">
                         <div class="info">
@@ -86,7 +86,7 @@
                                 <span v-for="actor in tvSeries.actors">{{ actor.original_name }}</span>
                             </p>
                             <span class="star-vote">
-                                <i v-for="star in tvSerieStar(tvSeries)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
+                                <i v-for="star in movieStar(tvSeries)" class="fa" :class="{'fa-star' : star === true , 'fa-star-o' : star === false}"></i>
                         </div>
                     </div>
                 </div>
